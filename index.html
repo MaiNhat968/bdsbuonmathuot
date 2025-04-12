@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cập nhật bất động sản thực tế tại Buôn Ma Thuột, Đắk Lắk. Hỗ trợ mua bán nhanh, đúng nhu cầu, không lòng vòng." />
+  <title>Môi giới nhà đất Buôn Ma Thuột – Ms. Nhật BĐS Đắk Lắk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #fdfdf8;
+      color: #2e2e2e;
+    }
+    header, footer {
+      background: #2e7d32;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 960px;
+      margin: auto;
+      padding: 20px 0;
+    }
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #d8e8d1;
+    }
+    h1, h2 {
+      color: #1b5e20;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .property-card {
+      background: #ffffff;
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 5px solid #2e7d32;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .contact {
+      background: #e8f5e9;
+      padding: 15px;
+      border-left: 5px solid #1b5e20;
+    }
+    a {
+      color: #2e7d32;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: #1b5e20;
+    }
+    .profile-pic {
+      display: block;
+      max-width: 180px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .call-now {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2e7d32;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    @media (max-width: 768px) {
+      .call-now {
+        display: block;
+      }
+    }
+    iframe.map {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .contact, .property-card, .container section {
+      animation: fadeIn 0.8s ease both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ms. Nhật BĐS - Nhà đất Buôn Ma Thuột</h1>
+    <p>Chuyên môi giới nhà đất khu vực TP. Buôn Ma Thuột & Đắk Lắk</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Giới thiệu</h2>
+      <img src="hình Nhat.jpg" alt="Ảnh đại diện Ms. Nhật" class="profile-pic">
+      <p>Ms. Nhật là môi giới bất động sản hoạt động tại TP. Buôn Ma Thuột. Nhật hỗ trợ khách hàng mua bán đất nền, nhà ở và tài sản đầu tư tại các khu vực tiềm năng như Tân Lợi, Ea Tu, Tân An, Tân Hòa…</p>
+      <p>Với lợi thế hiểu rõ thị trường địa phương, Nhật giúp khách hàng tiếp cận các bất động sản có tiềm năng thật sự, không lòng vòng trung gian, rõ ràng về pháp lý và giá cả.</p>
+      <p>Trang web này cập nhật một số sản phẩm tiêu biểu đang được Nhật hỗ trợ giao dịch. Nếu bạn cần tư vấn theo nhu cầu riêng, đừng ngần ngại liên hệ – Nhật luôn sẵn sàng hỗ trợ.</p>
+    </section>
+
+    <section>
+      <h2>Bất động sản tiêu biểu</h2>
+      <div id="property-list">
+        <p>Đang tải danh sách bất động sản từ Google Sheet...</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Liên hệ</h2>
+      <p>☎️ Điện thoại / Zalo: <a href="tel:0968797768">0968 797 768</a></p>
+      <img src="QR Code.jpg" alt="Quét mã QR Zalo của Ms. Nhật" style="max-width: 160px; border-radius: 8px; margin-top: 10px;">
+      <p><small>Quét QR để kết nối Zalo với Ms. Nhật</small></p>
+      <iframe class="map" src="https://www.google.com/maps?q=1+Tôn+Đức+Thắng,+Tân+An,+Buôn+Ma+Thuột,+Đắk+Lắk&output=embed" allowfullscreen></iframe>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Ms. Nhật BĐS - Buôn Ma Thuột. All rights reserved.</p>
+  </footer>
+
+  <a href="tel:0968797768" class="call-now">📞 Gọi Ms. Nhật</a>
+
+  <script>
+    const sheetID = '10FLZMW8ICL0bTVhHARDZGsRXBQrD9JNsTqp8_QhXI8w';
+    const sheetName = 'Sheet1';
+    const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}`;
+
+    fetch(base)
+      .then(res => res.text())
+      .then(rep => {
+        const data = JSON.parse(rep.substr(47).slice(0, -2));
+        const propertyList = document.getElementById('property-list');
+        propertyList.innerHTML = '';
+        data.table.rows.forEach((row, index) => {
+          if (index === 0) return;
+          const name = row.c[0]?.v || '';
+          const description = row.c[1]?.v || '';
+          const price = row.c[2]?.v || '';
+          const area = row.c[3]?.v || '';
+          const image = row.c[4]?.v || '';
+          const maplink = row.c[5]?.v || '';
+
+          const div = document.createElement('div');
+          div.className = 'property-card';
+          div.innerHTML = `
+            ${image ? `<img src="${image}" style="max-width:100%; border-radius:8px; margin-bottom:10px">` : ''}
+            <h3>${name}</h3>
+            <p>${description}</p>
+            <p>Diện tích: ${area}</p>
+            <p>Giá tham khảo: ${price}</p>
+            ${maplink ? `<p><a href="${maplink}" target="_blank">📍 Xem vị trí trên bản đồ</a></p>` : ''}
+          `;
+          propertyList.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
