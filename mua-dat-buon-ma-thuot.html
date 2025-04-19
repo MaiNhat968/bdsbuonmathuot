@@ -21,13 +21,20 @@
     h2 { color: #1b5e20; border-left: 4px solid #2e7d32; padding-left: 12px; margin-bottom: 10px; }
     .highlight { background: #e8f5e9; padding: 15px; border-left: 5px solid #66bb6a; border-radius: 6px; margin-bottom: 20px; }
     ul { padding-left: 20px; }
-    footer { background: #2e7d32; color: white; text-align: center; padding: 20px; }
-    iframe.google-sheet {
-      width: 100%;
-      height: 420px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    .property-card {
+      background: #fff;
+      padding: 15px;
+      margin: 12px 0;
+      border-left: 5px solid #2e7d32;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      border-radius: 6px;
     }
+    .property-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    footer { background: #2e7d32; color: white; text-align: center; padding: 20px; }
   </style>
 </head>
 <body>
@@ -51,8 +58,7 @@
 
     <section>
       <h2>Một số lô đất đang chào bán</h2>
-      <p>Dưới đây là một số sản phẩm tiêu biểu hiện đang được hỗ trợ giao dịch. Danh sách có thể thay đổi theo thời gian:</p>
-      <iframe class="google-sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR0RyAQTrP886VXpuINF8S6IMaijkHMoZ8xmjNzQTYcSHR8F91qhlxmjYlqDmY_B19-B3hN8T7a1D5p/pubhtml?widget=true&amp;headers=false"></iframe>
+      <div id="property-list">Đang tải dữ liệu từ Google Sheet...</div>
     </section>
 
     <section>
@@ -65,5 +71,39 @@
   <footer>
     <p>&copy; 2025 Ms. Nhật BĐS Buôn Ma Thuột. All rights reserved.</p>
   </footer>
+
+  <script>
+    const sheetID = '10FLZMW8ICL0bTVhHARDZGsRXBQrD9JNsTqp8_QhXI8w';
+    const sheetName = 'Sheet1';
+    const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}`;
+
+    fetch(base)
+      .then(res => res.text())
+      .then(rep => {
+        const data = JSON.parse(rep.substr(47).slice(0, -2));
+        const propertyList = document.getElementById('property-list');
+        propertyList.innerHTML = '';
+        data.table.rows.forEach((row, index) => {
+          if (index === 0) return;
+          const name = row.c[0]?.v || '';
+          const description = row.c[1]?.v || '';
+          const price = row.c[2]?.v || '';
+          const area = row.c[3]?.v || '';
+          const image = row.c[4]?.v || '';
+          const maplink = row.c[5]?.v || '';
+          const div = document.createElement('div');
+          div.className = 'property-card';
+          div.innerHTML = `
+            ${image ? `<img src="${image}" alt="Ảnh BĐS">` : ''}
+            <h3 style="font-size:20px; font-weight:bold; color:#1b5e20;">${name}</h3>
+            <p>${description}</p>
+            <p><strong>Diện tích:</strong> ${area}</p>
+            <p><strong>Giá tham khảo:</strong> ${price}</p>
+            ${maplink ? `<p><a href="${maplink}" target="_blank">📍 Xem vị trí trên bản đồ</a></p>` : ''}
+          `;
+          propertyList.appendChild(div);
+        });
+      });
+  </script>
 </body>
 </html>
